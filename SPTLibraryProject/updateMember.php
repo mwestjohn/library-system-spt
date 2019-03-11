@@ -24,4 +24,55 @@
 	} else { //redirect to book search page
 		header('Location: home.php');
 	}
+	
+	$oldUcard = $_POST['current-ucard'];
+	$newName = $_POST['new-name'];
+	$newUcard = $_POST['new-ucard'];
+	$newAddress = $_POST['new-address'];
+	$newPhone = $_POST['new-phone'];
+	
+	if($oldUcard == ''){
+		echo "<p>Please provide a valid U-Card number
+		<a href = 'editMember.php'>Try again</a></p>";
+	} else {
+		echo '<p>';
+		if($newName != '') {
+			$query = 'UPDATE members SET name = "'.$newName.'" WHERE ucard = '.$oldUcard;
+			if($conn->query($query)){
+				echo 'Successfully updated name.<br>';
+			} else {
+				echo 'Error updating name.<br>';
+				echo $conn->error;
+			}
+		}
+		if($newAddress != '') {
+			$query = 'UPDATE members SET address = "'.$newAddress.'" WHERE ucard = '.$oldUcard;
+			if($conn->query($query)){
+				echo 'Successfully updated address.<br>';
+			} else {
+				echo 'Error updating address.<br>';
+				echo $conn->error;
+			}
+		}
+		if($newPhone != '') {
+			$query = 'UPDATE members SET phone = '.$newPhone.' WHERE ucard = '.$oldUcard;
+			if($conn->query($query)){
+				echo 'Successfully updated phone number.<br>';
+			} else {
+				echo 'Error updating phone number.<br>';
+				echo $conn->error;
+			}
+		}
+		if($newUcard != '') {
+			
+			$query = 'UPDATE members SET ucard = '.$newUcard.' WHERE ucard = '.$oldUcard;
+			if($conn->query($query)){
+				echo 'Successfully updated U-Card number.<br>';
+			} else {
+				echo 'Error updating U-Card number.<br>';
+				echo $conn->error;
+			}
+		}
+		echo '<a href = "editMember.php">Update another?</a></p>';
+	}
 ?>

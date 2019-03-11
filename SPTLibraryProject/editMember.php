@@ -21,31 +21,31 @@
 		?>
 		<form id = "add-member" action = "addMember.php" method = "post">
 			<label for = "member-name">Name</label>
-			<input name = "member-name"></input>
+			<input name = "member-name" placeholder = "John Smith"></input>
 			<label for = "member-ucard">U-Card</label>
-			<input name = "member-ucard"></input>
+			<input name = "member-ucard" placeholder = "1234"></input>
 			<label for = "member-address">Address</label>
-			<input name = "member-address"></input>
+			<input name = "member-address" placeholder = "1 Maple Dr."></input>
 			<label for = "member-phone">Phone</label>
-			<input name = "member-phone"></input>
+			<input name = "member-phone" placeholder = "1234567890"></input>
 			<button type = "submit">Add Member</button>
 		</form>	
 		<form id = "update-member" action = "updateMember.php" method = "post">
 			<label for = "current-ucard">Current U-Card</label>
-			<input type = "text" name = "current-ucard"></input>
-			<label for = "member-name">New Name</label>
-			<input type = "text" name = "member-name"></input>
-			<label for = "member-ucard">New U-Card</label>
-			<input type = "text" name = "member-ucard"></input>
-			<label for = "member-address">New Address</label>
-			<input type = "text" name = "member-address"></input>
-			<label for = "member-phone">New Phone</label>
-			<input type = "text" name = "member-phone"></input>
-			<button type = "submit">Add Member</button>
+			<input type = "text" name = "current-ucard" placeholder = "1234"></input>
+			<label for = "new-name">New Name</label>
+			<input type = "text" name = "new-name" placeholder = "John Smith"></input>
+			<label for = "new-ucard">New U-Card</label>
+			<input type = "text" name = "new-ucard" placeholder = "1234"></input>
+			<label for = "new-address">New Address</label>
+			<input type = "text" name = "new-address" placeholder = "1 Maple Dr."></input>
+			<label for = "new-phone">New Phone</label>
+			<input type = "text" name = "new-phone" placeholder = "1234567890"></input>
+			<button type = "submit">Update Member</button>
 		</form>
 		<form id = "remove-member" action = "removeMember.php" method = "post">
 			<label for = "ucard">U-Card Number</label>
-			<input type = "text" name = "ucard"></input>
+			<input type = "text" name = "ucard" placeholder = "1234"></input>
 			<button type = "submit">Remove Member</button>
 		</form>
 		<?php

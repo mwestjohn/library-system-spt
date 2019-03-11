@@ -20,33 +20,39 @@
 			}
 		?>
 		<form id = "add-book" action = "addBook.php" method = "post">
-			<label for = "member-name">Name</label>
-			<input name = "member-name"></input>
-			<label for = "member-ucard">U-Card</label>
-			<input name = "member-ucard"></input>
-			<label for = "member-address">Address</label>
-			<input name = "member-address"></input>
-			<label for = "member-phone">Phone</label>
-			<input name = "member-phone"></input>
+			<label for = "book-title">Title</label>
+			<input name = "book-title"></input>
+			<label for = "book-author">Author</label>
+			<input name = "book-author"></input>
+			<label for = "book-isbn">ISBN</label>
+			<input name = "book-isbn"></input>
+			<label for = "book-loan">Loan Duration</label>
+			<input name = "book-loan"></input>
+			<label for = "book-copies">Number of Copies to be Added</label>
+			<input name = "book-copies"></input>
 			<button type = "submit">Add Member</button>
 		</form>	
 		<form id = "update-book" action = "updateBook.php" method = "post">
-			<label for = "current-ucard">Current U-Card</label>
+			<label for = "current-isbn">Current ISBN</label>
 			<input type = "text" name = "current-ucard"></input>
-			<label for = "member-name">New Name</label>
-			<input type = "text" name = "member-name"></input>
-			<label for = "member-ucard">New U-Card</label>
-			<input type = "text" name = "member-ucard"></input>
-			<label for = "member-address">New Address</label>
-			<input type = "text" name = "member-address"></input>
-			<label for = "member-phone">New Phone</label>
-			<input type = "text" name = "member-phone"></input>
-			<button type = "submit">Add Member</button>
+			<label for = "book-title">Title</label>
+			<input name = "book-title"></input>
+			<label for = "book-author">Author</label>
+			<input name = "book-author"></input>
+			<label for = "book-isbn">ISBN</label>
+			<input name = "book-isbn"></input>
+			<label for = "book-loan">Loan Duration</label>
+			<input name = "book-loan"></input>
+			<label for = "book-copies">Number of Copies to be Added</label>
+			<input name = "book-copies"></input>
+			<button type = "submit">Update Book</button>
 		</form>
 		<form id = "remove-book" action = "removeBook.php" method = "post">
-			<label for = "ucard">U-Card Number</label>
-			<input type = "text" name = "ucard"></input>
-			<button type = "submit">Remove Member</button>
+			<label for = "isbn">ISBN</label>
+			<input type = "text" name = "isbn"></input>
+			<label for = "num-copies">Number of Copies to Remove</label>
+			<input type = "text" name = "num-copies"></input>
+			<button type = "submit">Remove Books</button>
 		</form>
 		<?php
 			}

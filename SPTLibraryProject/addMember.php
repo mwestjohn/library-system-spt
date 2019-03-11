@@ -25,4 +25,19 @@
 	} else { //redirect to book search page
 		header('Location: home.php');
 	}
+	
+	$name = $_POST['member-name'];
+	$address = $_POST['member-address'];
+	$phone = $_POST['member-phone'];
+	$ucard = $_POST['member-ucard'];
+	
+	$query = "INSERT INTO members(U-card,name,address,phone) VALUES(".$ucard.",".$name.",".$address.",".$phone."";
+	
+	if($conn->query($query)) {
+		echo '<p>Successfully added a new member.
+		<a href = "editMember.php">Add Anther?</a></p>';
+	} else {
+		echo '<p>Failed to add member.
+		<a href = "editMember.php">Try Again?</a></p>';
+	}
 ?>

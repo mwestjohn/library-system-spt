@@ -2,6 +2,9 @@
 	session_start(); // Start the session
 	require_once('openDB.php'); // Open the connection to the database
 	require_once('logout.php'); // Logout script for the logout button
+	
+	$output = '';
+	
 	if($_POST['search']){
 		$searchField = "isbn13";
 		if(isset($_POST['search-field'])){
@@ -12,7 +15,7 @@
 			$target = $_POST['target'];
 		}
 		$query = "SELECT * FROM books WHERE $searchField LIKE '%$target%' ORDER BY isbn13 ASC";
-		$output = '';
+		
 		
 		// Query the database
 		if($result = $conn->query($query)) {
@@ -61,7 +64,7 @@
 				<option value="author">Author</option>
 			</select>
 			<input type = "text" name = "target"></input>
-			<input type = "submit" name = "search" value = "Search Books" title = "Click here to search books"></button>
+			<input type = "submit" name = "search" value = "Search Books" title = "Click here to search books"></input>
 		</form>
 	</div>
 	<?php

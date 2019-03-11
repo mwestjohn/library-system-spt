@@ -24,4 +24,24 @@
 	} else { //redirect to book search page
 		header('Location: home.php');
 	}
+	
+	$ucard = $_POST['ucard'];
+	
+	// Get the number of books checked out by a member. They cannot leave the system if they are still in possession of any library property
+	$query = 'SELECT books_checked_out FROM members WHERE ucard = '.$ucard;
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	if($row['books_checked_out'] != 0) {
+		echo "<p>Cannot remove member who still has books checked out
+		<a href = 'editMember.php'>Remove someone else?</a></p>";
+	} else {
+		$query = "DELETE FROM members WHERE ucard = ".$ucard;
+		if($conn->query($query)) {
+			echo '<p>Successfully removed member
+			<a href = "editMember.php">Remove another?</a></p>';
+		} else {
+			echo '<p>Could not remove member. Verify the U-Card number.
+			<a href = "editMember.php">Try again?</a></p>';
+		}
+	}
 ?>
