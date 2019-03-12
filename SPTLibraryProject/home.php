@@ -2,6 +2,7 @@
 	session_start(); // Start the session
 	require_once('openDB.php'); // Open the connection to the database
 	require_once('logout.php'); // Logout script for the logout button
+	require_once('header.php'); // Head, complete with stylesheet links
 	
 	$output = '';
 	
@@ -31,30 +32,36 @@
 			$output = 'Error searching database';
 		}
 	}
+	?>
+	
+	<?php
 	if (isset($_SESSION['position'])) {
 ?>
-<head>
-	
-</head>
-<body>
-	<h3>Welcome <?php echo $_SESSION['name'] ?></h3>
-	<a href="?action=logout">Logout</a>
-	<a href = "home.php">Search Books</a>
-	<?php if($_SESSION['position'] == 'assistant' || $_SESSION['position'] == 'manager') {?>
-	<a href = "checkout.php">Checkout Books</a>
-	<?php } 
-		if($_SESSION['position'] == 'manager') {
-	?>
-	<a href = "editMember.php">Library Members</a>
-	<a href = "editBook.php">Library Books</a>
-	<?php
-			}
-	} else { //stay here
+	<h1 class = "title">Public Library</h1>
+	<h3 class = "heading">Welcome <?php echo $_SESSION['name'] ?></h3>
+	<div class = "nav">
+		<a class = "logout" href="?action=logout">Logout</a>
+		<a class = "nav-link" href = "home.php">Search Books</a>
+		<?php if($_SESSION['position'] == 'assistant' || $_SESSION['position'] == 'manager') {?>
+		<a class = "nav-link" href = "checkout.php">Checkout Books</a>
+		<?php } 
+			if($_SESSION['position'] == 'manager') {
 		?>
-		<a href = "login.php">Login Here</a>
+		<a class = "nav-link" href = "editMember.php">Library Members</a>
+		<a class = "nav-link" href = "editBook.php">Library Books</a>
 		<?php
-	}
-	?>
+				}
+		} else { // stay here and show login button
+			?>
+			<h1 class = "title">Public Library</h1>
+			<h3 class = "heading">Welcome</h3>
+			<div class = "nav">
+			<a class = "login" href = "login.php">Login Here</a>
+			<?php
+		}
+		?>
+	</div>
+	<h2 class = "page-title">Search Books</h2>
 	<div class = "search-form">
 		<form id = "search" action="" method = "post">
 			<label for="search-field">Search By: </label>

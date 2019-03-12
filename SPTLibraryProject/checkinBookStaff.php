@@ -35,11 +35,11 @@
 	<div class = "results page">
 	<?php
 	$isbn = $_POST['isbn'];
-	$ucard = $_POST['ucard'];
+	$username = $_POST['username'];
 			
-	$query = 'DELETE FROM checkedoutby WHERE isbn = '.$isbn.' AND ucardNo = '.$ucard.'';
+	$query = 'DELETE FROM checkedoutby WHERE isbn = '.$isbn.' AND ucardNo = '.$username.'';
 	if($conn->query($query)) {
-		echo "<p>Successfully removed record 
+		echo "<p>Successfully removed record
 		<a href = 'checkout.php'>Remove another?</a></p>";
 	} else {
 		echo "<p>Error removing record. Please double check the member id and the ISBN.

@@ -52,8 +52,7 @@ if (isset($_POST['submit'])) {
 				margin: auto;
 				padding: 30px;
 				box-sizing: border-box;
-				background-color: #D2E8DF;
-				border-radius: 10px;
+				background-color: #E8D5D2;
 			}
 			h3 {
 				margin-top: 0;
@@ -71,14 +70,13 @@ if (isset($_POST['submit'])) {
 				font-size: 20px;
 				background-color: #404F48;
 				border: 2px solid #404F48;
-				border-radius: 50px;
 				padding: 10px 30px;
 				transition: 300ms all;
 				outline: none;
 				width: 50%;
 				margin: auto;
 				text-align: center;
-				color: #D2E8DF;
+				color: #E8D5D2;
 			}
 			.btn:hover {
 				background-color: transparent;

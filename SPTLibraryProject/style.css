@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+body {
+	font-family: "Roboto",sans-serif;
+	margin: 0;
+	background-color: rgba(232,213,210,0.1);
+	color: #404F49;
+	padding: 0 30px;
+}
+
+a {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #404F49;
+	color: #E8D5D2;
+	border: 1px solid #404F49;
+	text-decoration: none;
+	font-size: 20px;
+	transition: background-color 300ms, color 300ms;
+}
+
+a:hover {
+	background-color: transparent;
+	color: #404F49;
+}
+
+.title {
+	padding: 30px 30px 0 30px;
+	margin: 0;
+	text-align: right;
+}
+
+.heading {
+	font-size: 26px;
+	padding: 30px 30px;
+	margin: 0;
+	text-align: right;
+}
+
+.nav {
+	padding: 30px;
+	padding-top: 0;
+	display: flex;
+	align-items: stretch;
+	justify-content: flex-end;
+	flex-flow: row wrap;
+}
+
+.logout, .login {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #E82200;
+	color: #FFFFFF;
+	border: 1px solid #E82200;
+	text-decoration: none;
+	font-size: 20px;
+	transition: background-color 300ms, color 300ms;
+	width: 200px;
+	text-align: center;
+}
+
+.logout:hover, .login:hover {
+	background-color: transparent;
+	color: #E82200;
+}
+
+.nav-link {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #404F49;
+	color: #E8D5D2;
+	border: 1px solid #404F49;
+	text-decoration: none;
+	font-size: 20px;
+	transition: background-color 300ms, color 300ms;
+	width: 200px;
+	text-align: center;
+}
+
+.nav-link:hover {
+	background-color: transparent;
+	color: #404F49;
+}
+
+.page-title {
+	padding: 0 30px;
+}
+
+.search-form {
+	padding: 0 30px;
+}
+
+.search-form select {
+	font-size: 20px;
+	padding: 10px;
+	outline: none;
+}
+
+.search-form input[type=text] {
+	font-size: 20px;
+	padding: 10px;
+	background-color: #FFFFFF;
+	outline: none;
+}
+
+.search-form input[type=submit] {
+	color: #E8D5D2;
+	background-color: #404F49;
+	font-size: 20px;
+	padding: 10px 20px;
+	border: 2px solid #404F49;
+	transition: background-color 300ms, color 300ms;
+}
+
+.search-form input[type=submit]:hover {
+	background-color: transparent;
+	color: #404F49;
+}
+
+.search-row {
+	width: 100%;
+	padding: 0px 30px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	border-top: 1px solid #404F49;
+}
+
+.search-row:last-of-type {
+	border-bottom: 1px solid #404F49;
+}
+
+.search-row .book-title {
+	width: 40%;
+	padding: 10px 10px;
+}
+
+.search-row .book-author {
+	width: 10%;
+	padding: 10px 10px;
+}
+
+.search-row .book-isbn {
+	width: 10%;
+	padding: 10px 10px;
+}
+
+.search-row .book-loan {
+	width: 10%;
+	padding: 10px 10px;
+}
+
+.search-row .book-available {
+	width: 10%;
+	padding: 10px 10px;
+}
+
+.member-title, .checkout-title, .books-title {
+	box-sizing: border-box;
+	max-width: 1280px;
+	margin: 0 auto 20px;
+}
+
+.form-title {
+	margin: 0 0 20px;
+}
+
+.member-form, .check-form, .book-form {
+	box-sizing: border-box;
+	max-width: 1280px;
+	padding: 30px 40px 0;
+	margin: 0 auto 20px;
+	border: 1px solid #404F49;
+}
+
+.member-form input, .check-form input, .book-form input {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	font-size: 20px;
+	background-color: #FFFFFF;
+	margin: 10px 0;
+	outline: none;
+}
+
+.member-form button, .check-form button, .book-form button {
+	padding: 10px 20px;
+	font-size: 20px;
+	background-color: #404F49;
+	border: 1px solid #404F49;
+	color: #E8D5D2;
+	transition: background-color 300ms, color 300ms;
+}
+
+.member-form button:hover, .check-form button:hover, .book-form button:hover {
+	background-color: transparent;
+	color: #404F49;
+}
+
+.results {
+	padding: 30px;
+}
+
+@media all and (max-width: 1100px) {
+	.nav {
+		flex-flow: column wrap;
+		align-items: flex-end;
+	}
+	.search-row {
+		flex-direction: column;
+	}
+	.search-row .book-title, .search-row .book-author, .search-row .book-isbn, .search-row .book-loan, .search-row .book-available {
+		width: 100%;
+	}
+}

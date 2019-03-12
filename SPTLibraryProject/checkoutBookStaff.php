@@ -35,14 +35,15 @@
 	<div class = "results page">
 	<?php
 	$isbn = $_POST['isbn'];
-	$ucard = $_POST['ucard'];
-			
-	$query = 'DELETE FROM checkedoutby WHERE isbn = '.$isbn.' AND ucardNo = '.$ucard.'';
+	$username = $_POST['username'];
+	
+	$query = 'INSERT INTO checkedoutbyStaff (isbn,username) values('.$isbn.','.$username.')';
+	
 	if($conn->query($query)) {
-		echo "<p>Successfully removed record 
-		<a href = 'checkout.php'>Remove another?</a></p>";
+		echo "<p>Successfully inserted record
+		<a href = 'checkout.php'>Checkout another?</a></p>";
 	} else {
-		echo "<p>Error removing record. Please double check the member id and the ISBN.
+		echo "<p>Error checking out book. Please double check the username and the ISBN.
 		<a href = 'checkout.php'>Try again?</a></p>";
 	}
 	?>
