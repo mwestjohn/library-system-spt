@@ -24,8 +24,8 @@
 				$s = '<span class = "book-title">'.$row['title'].'</span>
 				<span class = "book-author">'.$row['author'].'</span>
 				<span class = "book-isbn">'.$row['isbn13'].'</span>
-				<span class = "book-loan">Loan Duration: '.$row['loan duration'].' weeks</span>
-				<span class = "book-available">Number Available: '.$row['copies available'].'</span>';
+				<span class = "book-loan">Loan Duration: '.$row['loan_duration'].' weeks</span>
+				<span class = "book-available">Number Available: '.$row['copies_available'].'</span>';
 				$output .= '<div class = "search-row">'.$s.'</div>';
 			}
 		} else {

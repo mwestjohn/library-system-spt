@@ -41,10 +41,32 @@
 	if($conn->query($query)) {
 		echo "<p>Successfully removed record 
 		<a href = 'checkout.php'>Remove another?</a></p>";
+		
+		// Get how many books are checked out
+		$query = 'SELECT books_checked_out FROM members WHERE ucard = '.$ucard.'';
+		$result = $conn->query($query);
+		$row = $result->fetch_assoc();
+		
+		// Subtract 1 from the number of books checked out to allow for the member to check out more books later
+		$newChecked = $row['books_checked_out']-1;
+		$query = 'UPDATE members SET books_checked_out='.$newChecked.' WHERE ucard = '.$ucard.'';
+		$conn->query($query);
+		
+		// Get how many books are checked out
+		$query = 'SELECT copies_available FROM books WHERE isbn13 = '.$isbn.'';
+		$result = $conn->query($query);
+		$row = $result->fetch_assoc();
+		
+		// Subtract 1 from the number of books checked out to allow for the member to check out more books later
+		$newChecked = $row['copies_available']+1;
+		$query = 'UPDATE books SET copies_available='.$newChecked.' WHERE isbn13 = '.$isbn.'';
+		$conn->query($query);
 	} else {
 		echo "<p>Error removing record. Please double check the member id and the ISBN.
 		<a href = 'checkout.php'>Try again?</a></p>";
 	}
+	
+	
 	?>
 	</div>
 	<?php

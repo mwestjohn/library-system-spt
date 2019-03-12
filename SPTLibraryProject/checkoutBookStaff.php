@@ -37,14 +37,40 @@
 	$isbn = $_POST['isbn'];
 	$username = $_POST['username'];
 	
-	$query = 'INSERT INTO checkedoutbyStaff (isbn,username) values('.$isbn.','.$username.')';
+	// Get the number of books checked out by the member
+	$query = 'SELECT books_checked_out FROM staff WHERE username = "'.$username.'"';
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	$numChecked = $row['books_checked_out'];
 	
-	if($conn->query($query)) {
-		echo "<p>Successfully inserted record
-		<a href = 'checkout.php'>Checkout another?</a></p>";
+	// Get the number of available copies of the book in question
+	$query = 'SELECT copies_available FROM books WHERE isbn13 = '.$isbn.'';
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	$numAvailable = $row['copies_available'];
+	
+	if($numChecked <= 12 && $numAvailable >= 0){
+		$query = 'INSERT INTO checkedoutbyStaff (isbn,username) values('.$isbn.',"'.$username.'")';
+		
+		if($conn->query($query)) {
+			echo "<p>Successfully inserted record
+			<a href = 'checkout.php'>Checkout another?</a></p>";
+			
+			$newChecked = $numChecked + 1;
+			$query = 'UPDATE staff SET books_checked_out='.$newChecked.' WHERE username = "'.$username.'"';
+			$conn->query($query);
+			
+			$newAvailable = $numAvailable - 1;
+			$query = 'UPDATE books SET copies_available='.$newAvailable.' WHERE isbn13 = '.$isbn.'';
+			$conn->query($query);
+		} else {
+			echo "<p>Error checking out book. Please double check the username and the ISBN.
+			<a href = 'checkout.php'>Try again?</a></p>";
+		}
 	} else {
-		echo "<p>Error checking out book. Please double check the username and the ISBN.
-		<a href = 'checkout.php'>Try again?</a></p>";
+		echo '<p>Error checking out book. Either there are no available copies,
+		or the member already has six books checked out.
+		<a href = "checkout.php">Try again?</a></p>';
 	}
 	?>
 	</div>
