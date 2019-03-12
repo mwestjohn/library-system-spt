@@ -8,7 +8,7 @@
 		if($_SESSION['position'] == 'manager') {
 		?>
 		<h1 class = "title">Public Library</h1>
-		<h3 class = "heading"Welcome <?php echo $_SESSION['name'] ?></h3>
+		<h3 class = "heading">Welcome <?php echo $_SESSION['name'] ?></h3>
 		<div class = "nav">
 			<a class = "logout" href="?action=logout">Logout</a>
 			<a class = "nav-link" href = "home.php">Search Books</a>

@@ -37,12 +37,12 @@
 	$isbn = $_POST['isbn'];
 	$username = $_POST['username'];
 			
-	$query = 'DELETE FROM checkedoutby WHERE isbn = '.$isbn.' AND ucardNo = '.$username.'';
+	$query = 'DELETE FROM checkedoutbyStaff WHERE isbn = '.$isbn.' AND username = "'.$username.'"';
 	if($conn->query($query)) {
 		echo "<p>Successfully removed record
 		<a href = 'checkout.php'>Remove another?</a></p>";
 		// Get how many books are checked out
-		$query = 'SELECT books_checked_out FROM staff WHERE username = '.$username.'';
+		$query = 'SELECT books_checked_out FROM staff WHERE username = "'.$username.'"';
 		$result = $conn->query($query);
 		$row = $result->fetch_assoc();
 		
@@ -63,6 +63,7 @@
 	} else {
 		echo "<p>Error removing record. Please double check the member id and the ISBN.
 		<a href = 'checkout.php'>Try again?</a></p>";
+		echo $conn->error;
 	}
 	?>
 	</div>

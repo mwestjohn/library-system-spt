@@ -8,8 +8,8 @@
 	
 	if($_POST['search']){
 		$searchField = "isbn13";
-		if(isset($_POST['search-field'])){
-			$searchField = $_POST['search-field'];
+		if(isset($_POST['search_field'])){
+			$searchField = $_POST['search_field'];
 		}
 		$target = '';
 		if(isset($_POST['target'])){
@@ -64,8 +64,8 @@
 	<h2 class = "page-title">Search Books</h2>
 	<div class = "search-form">
 		<form id = "search" action="" method = "post">
-			<label for="search-field">Search By: </label>
-			<select id="search-field" name="search-field">
+			<label for="search_field">Search By: </label>
+			<select id="search_field" name="search-field">
 				<option value="isbn13">ISBN</option>
 				<option value="title">Title</option>
 				<option value="author">Author</option>

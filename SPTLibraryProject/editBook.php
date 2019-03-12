@@ -26,45 +26,45 @@
 		<h2 class = "page-title books-title">Control Book Information</h2>
 		<div class = "book-form add-form">
 			<h3 class ="form-title">Add a Book</h3>
-			<form id = "add-book" action = "addBook.php" method = "post">
-				<label for = "book-title">Title</label>
-				<input type = "text" name = "book-title"></input>
-				<label for = "book-author">Author</label>
-				<input type = "text" name = "book-author"></input>
-				<label for = "book-isbn">ISBN</label>
-				<input type = "text" name = "book-isbn"></input>
-				<label for = "book-loan">Loan Duration</label>
-				<input type = "text" name = "book-loan"></input>
-				<label for = "book-copies">Number of Copies to be Added</label>
-				<input type = "text" name = "book-copies"></input>
+			<form id = "add-book" action = "addBook.php" method = "post" onsubmit = "return valAddBook(this);">
+				<label for = "book_title">Title</label>
+				<input type = "text" name = "book_title"></input>
+				<label for = "book_author">Author</label>
+				<input type = "text" name = "book_author"></input>
+				<label for = "book_isbn">ISBN</label>
+				<input type = "text" name = "book_isbn"></input>
+				<label for = "book_loan">Loan Duration</label>
+				<input type = "text" name = "book_loan"></input>
+				<label for = "book_copies">Number of Copies to be Added</label>
+				<input type = "text" name = "book_copies"></input>
 				<button type = "submit">Add Member</button>
 			</form>
 		</div>
 		<div class = "book-form update-form">
 			<h3 class = "form-title">Update a Book's Information</h3>
-			<form id = "update-book" action = "updateBook.php" method = "post">
-				<label for = "current-isbn">Current ISBN</label>
-				<input type = "text" type = "text" name = "current-ucard"></input>
-				<label for = "new-title">Title</label>
-				<input type = "text" name = "new-title"></input>
-				<label for = "new-author">Author</label>
-				<input type = "text" name = "new-author"></input>
-				<label for = "new-isbn">ISBN</label>
-				<input type = "text" name = "new-isbn"></input>
-				<label for = "new-loan">Loan Duration</label>
-				<input type = "text" name = "new-loan"></input>
-				<label for = "new-copies">Number of Copies to be Added</label>
-				<input type = "text" name = "new-copies"></input>
+			<form id = "update-book" action = "updateBook.php" method = "post" onsubmit = "return valUpdateBook(this);">
+				<label for = "current_isbn">Current ISBN</label>
+				<input type = "text" name = "current_isbn"></input>
+				<label for = "new_title">Title</label>
+				<input type = "text" name = "new_title"></input>
+				<label for = "new_author">Author</label>
+				<input type = "text" name = "new_author"></input>
+				<label for = "new_isbn">ISBN</label>
+				<input type = "text" name = "new_isbn"></input>
+				<label for = "new_loan">Loan Duration</label>
+				<input type = "text" name = "new_loan"></input>
+				<label for = "new_copies">Number of Copies to be Added</label>
+				<input type = "text" name = "new_copies"></input>
 				<button type = "submit">Update Book</button>
 			</form>
 		</div>
 		<div class = "book-form remove-form">
 			<h3 class = "form-title">Remove a Book</h3>
-			<form id = "remove-book" action = "removeBook.php" method = "post">
+			<form id = "remove-book" action = "removeBook.php" method = "post" onsubmit = "return valDeleteBook(this);">
 				<label for = "isbn">ISBN</label>
 				<input type = "text" name = "isbn"></input>
-				<label for = "num-copies">Number of Copies to Remove</label>
-				<input type = "text" name = "num-copies"></input>
+				<label for = "num_copies">Number of Copies to Remove</label>
+				<input type = "text" name = "num_copies"></input>
 				<button type = "submit">Remove Books</button>
 			</form>
 		</div>

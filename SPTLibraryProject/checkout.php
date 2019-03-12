@@ -30,7 +30,7 @@
 		<h2 class = "page-title checkout-title">Checkout/In</h2>
 		<div class = "checkout check-form">
 			<h3 class = "form-title">Library Member Checkout</h3>
-			<form id = "checkout-form" action = "checkoutBook.php" method = "post">
+			<form id = "checkout-form" action = "checkoutBook.php" method = "post" onsubmit = "return valMemCheckout(this);">
 				<label for = "ucard">U-Card Number</label>
 				<input type = "text" name = "ucard"></input>
 				<label for = "isbn">ISBN</label>
@@ -40,7 +40,7 @@
 		</div>
 		<div class = "checkin check-form">
 			<h3 class = "form-title">Library Member Checkin</h3>
-			<form id = "checkin-form" action = "checkinBook.php" method = "post">
+			<form id = "checkin-form" action = "checkinBook.php" method = "post" onsubmit = "return valMemCheckin(this);">
 				<label for = "ucard">U-Card Number</label>
 				<input type = "text" name = "ucard"></input>
 				<label for = "isbn">ISBN</label>
@@ -49,8 +49,8 @@
 			</form>
 		</div>
 		<div class = "checkout-staff check-form">
-			<h3 class = "form-title">Library Staff Checkin</h3>
-			<form id = "checkout-form" action = "checkoutBookStaff.php" method = "post">
+			<h3 class = "form-title">Library Staff Checkout</h3>
+			<form id = "checkout-form" action = "checkoutBookStaff.php" method = "post" onsubmit = "return valStaffCheckout(this);">
 				<label for = "username">Staff Username</label>
 				<input type = "text" name = "username"></input>
 				<label for = "isbn">ISBN</label>
@@ -60,7 +60,7 @@
 		</div>
 		<div class = "checkin-staff check-form">
 			<h3 class = "form-title">Library Staff Checkin</h3>
-			<form id = "checkin-form" action = "checkinBookStaff.php" method = "post">
+			<form id = "checkin-form" action = "checkinBookStaff.php" method = "post" onsubmit = "return valStaffCheckin(this);">
 				<label for = "username">Staff Username</label>
 				<input type = "text" name = "username"></input>
 				<label for = "isbn">ISBN</label>

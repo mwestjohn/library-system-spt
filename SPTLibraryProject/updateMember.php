@@ -38,11 +38,11 @@
 	?>
 	<div class = "results page">
 	<?php
-	$oldUcard = $_POST['current-ucard'];
-	$newName = $_POST['new-name'];
-	$newUcard = $_POST['new-ucard'];
-	$newAddress = $_POST['new-address'];
-	$newPhone = $_POST['new-phone'];
+	$oldUcard = $_POST['current_ucard'];
+	$newName = $_POST['new_name'];
+	$newUcard = $_POST['new_ucard'];
+	$newAddress = $_POST['new_address'];
+	$newPhone = $_POST['new_phone'];
 	
 	if($oldUcard == ''){
 		echo "<p>Please provide a valid U-Card number

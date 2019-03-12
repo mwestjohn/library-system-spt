@@ -39,13 +39,13 @@
 	?>
 	<div class = "results page">
 	<?php
-	$name = $_POST['member-name'];
-	$address = $_POST['member-address'];
-	$phone = $_POST['member-phone'];
-	$ucard = $_POST['member-ucard'];
+	$name = $_POST['member_name'];
+	$address = $_POST['member_address'];
+	$phone = $_POST['member_phone'];
+	$ucard = $_POST['member_ucard'];
 	
-	$query = "INSERT INTO members(U-card,name,address,phone) VALUES(".$ucard.",".$name.",".$address.",".$phone."";
-	
+	$query = 'INSERT INTO members(ucard,name,address,phone) VALUES('.$ucard.',"'.$name.'","'.$address.'",'.$phone.')';
+
 	if($conn->query($query)) {
 		echo '<p>Successfully added a new member.
 		<a href = "editMember.php">Add Anther?</a></p>';
