@@ -48,7 +48,7 @@
 		
 		// Subtract 1 from the number of books checked out to allow for the member to check out more books later
 		$newChecked = $row['books_checked_out']-1;
-		$query = 'UPDATE staff SET books_checked_out='.$newChecked.' WHERE userename = '.$username.'';
+		$query = 'UPDATE staff SET books_checked_out='.$newChecked.' WHERE username = "'.$username.'"';
 		$conn->query($query);
 		
 		// Get how many books are checked out
