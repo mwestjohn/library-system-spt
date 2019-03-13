@@ -129,8 +129,8 @@ function valDeleteMember(form) {
 function valAddBook(form) {
 	// Define regex values for comparing to the field values
 	var reAN = /^[\w ]+$/;
-	var reA = /^[a-zA-Z]+$/;
-	var reCopies = /^\d{10}$/;
+	var reA = /^[a-zA-Z ]+$/;
+	var reCopies = /^\d{1,10}$/;
 	var reIsbn = /^\d{13}$/;
 	var reLoan = /^\d{1}$/;
 	
@@ -171,8 +171,8 @@ function valAddBook(form) {
 function valUpdateBook(form) {
 	// Define regex values for comparing to the field values
 	var reAN = /^[\w ]+$/;
-	var reA = /^[a-zA-Z]+$/;
-	var reCopies = /^\d{10}$/;
+	var reA = /^[a-zA-Z ]+$/;
+	var reCopies = /^\d{1,10}$/;
 	var reIsbn = /^\d{13}$/;
 	var reLoan = /^\d{1}$/;
 	
@@ -232,7 +232,7 @@ function valUpdateBook(form) {
 
 function valDeleteBook(form) {
 	// Define regex values for comparing to the field values
-	var reCopies = /^\d{10}$/;
+	var reCopies = /^\d{1,10}$/;
 	var reIsbn = /^\d{13}$/;
 	
 	// Make sure that both fields are filled in
@@ -249,7 +249,7 @@ function valDeleteBook(form) {
 	
 	// Make sure that copies value is proper
 	if(!reCopies.test(form.num_copies.value)) {
-		alert("ISBN must contain exactly 13 numbers");
+		alert("Number must be between 1 and 10 digits");
 		return false;
 	}
 	

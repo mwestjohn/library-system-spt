@@ -38,6 +38,39 @@
 	?>
 	<div class = "results page">
 	<?php
+	$isbn13 = $_POST['isbn'];
+	$number_copies = $_POST['num_copies'];
+	$query = 'SELECT number_of_copies, copies_available FROM books WHERE isbn13 = '.$isbn13;
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	
+	if( $row['number_of_copies'] <= $number_copies){
+
+		$query = "DELETE FROM members WHERE isbn13 = ".$isbn13;
+		if($conn->query($query)) {
+			echo '<p>Successfully removed book.
+			<a href = "editBook.php">Remove another?</a></p>';
+		} else {
+			echo '<p>Could not remove book. Verify the ISBN number.
+			<a href = "editBook.php">Try again?</a></p>';
+		}
+	} else {
+		$numleft = $row['number_of_copies'] - $number_copies;
+		$numAvailable = $row['copies_available'] - $number_copies;
+		if($numAvailable >= 0) {
+			$query = "UPDATE books SET number_of_copies =".$numleft.", copies_available = ".$numAvailable." WHERE isbn13 = ".$isbn13;
+			if($conn->query($query)) {
+				echo '<p>Successfully removed copies.
+				<a href = "editBook.php">Remove another?</a></p>';
+			} else {
+				echo '<p>Could not remove copies. Verify the ISBN number.
+				<a href = "editBook.php">Try again?</a></p>';
+			}
+		} else {
+			echo '<p>Not enough copies in stock to remove that many.
+				<a href = "editBook.php">Try again?</a></p>';
+		}
+	}
 	
 	?>
 	</div>

@@ -38,7 +38,82 @@
 	?>
 	<div class = "results page">
 	<?php
+	$title = $_POST['new_title'];
+	$author = $_POST['new_author'];
+	$CURISBN = $_POST['current_isbn'];
+	$NEWISBN = $_POST['new_isbn'];
+	$loanduration = $_POST['new_loan'];
+	$copies = $_POST['new_copies'];
 	
+	$query = 'SELECT number_of_copies, copies_available FROM books WHERE isbn13 = '.$CURISBN;
+	$result = $conn->query($query);
+	$row = $result->fetch_assoc();
+	if($copies != ''){
+		$amountChanged = $copies - $row['number_of_copies'];
+		$copies_avail = $row['copies_available'] + $amountChanged;
+	}
+	if($CURISBN == ''){
+		echo "<p>Please provide a valid current ISBN
+		<a href = 'editBook.php'>Try again</a></p>";
+	} else {
+		echo '<p>';
+		if($title != '') {
+			$query = 'UPDATE books SET title = "'.$title.'" WHERE isbn13 = '.$CURISBN;
+			if($conn->query($query)){
+				echo 'Successfully updated title.<br>';
+			} else {
+				echo 'Error updating title.<br>';
+				echo $conn->error;
+			}
+		}
+		if($author != '') {
+			$query = 'UPDATE books SET author = "'.$author.'" WHERE isbn13 = '.$CURISBN;
+			if($conn->query($query)){
+				echo 'Successfully updated author.<br>';
+			} else {
+				echo 'Error updating author.<br>';
+				echo $conn->error;
+			}
+		}
+		if($loanduration != '') {
+			$query = 'UPDATE books SET loan_duration = '.$loanduration.' WHERE isbn13 = '.$CURISBN;
+			if($conn->query($query)){
+				echo 'Successfully updated phone number.<br>';
+			} else {
+				echo 'Error updating phone number.<br>';
+				echo $conn->error;
+			}
+		}
+			if($copies != '') {
+			$query = 'UPDATE books SET number_of_copies = '.$copies.' WHERE isbn13 = '.$CURISBN;
+			if($conn->query($query)){
+				echo 'Successfully updated copies.<br>';
+			} else {
+				echo 'Error updating copies.<br>';
+				echo $conn->error;
+			}
+		}
+			if($copies_avail != '') {
+			$query = 'UPDATE books SET copies_available = '.$copies_avail.' WHERE isbn13 = '.$CURISBN;
+			if($conn->query($query)){
+				echo 'Successfully updated copies available.<br>';
+			} else {
+				echo 'Error updating copies available.<br>';
+				echo $conn->error;
+			}
+		}
+		if($NEWISBN != '') {
+			
+			$query = 'UPDATE books SET isbn13 = '.$NEWISBN.' WHERE isbn13 = '.$CURISBN;
+			if($conn->query($query)){
+				echo 'Successfully updated ISBN.<br>';
+			} else {
+				echo 'Error updating ISBN.<br>';
+				echo $conn->error;
+			}
+		}
+		echo '<a href = "editBook.php">Update another?</a></p>';
+	}
 	?>
 	</div>
 	<?php

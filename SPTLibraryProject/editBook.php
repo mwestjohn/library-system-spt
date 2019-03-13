@@ -53,7 +53,7 @@
 				<input type = "text" name = "new_isbn"></input>
 				<label for = "new_loan">Loan Duration</label>
 				<input type = "text" name = "new_loan"></input>
-				<label for = "new_copies">Number of Copies to be Added</label>
+				<label for = "new_copies">New Number of Copies</label>
 				<input type = "text" name = "new_copies"></input>
 				<button type = "submit">Update Book</button>
 			</form>

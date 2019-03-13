@@ -38,7 +38,20 @@
 	?>
 	<div class = "results page">
 	<?php
-	
+	$title = $_POST['book_title'];
+	$author = $_POST['book_author'];
+	$ISBN = $_POST['book_isbn'];
+	$loanduration = $_POST['book_loan'];
+	$copies = $_POST['book_copies'];
+	$query = 'INSERT INTO books(isbn13,title,author,loan_duration,number_of_copies,copies_available) VALUES('.$ISBN.',"'.$title.'","'.$author.'",'.$loanduration.','.$copies.','.$copies.')';
+
+	if($conn->query($query)) {
+		echo '<p>Successfully added a new book.
+		<a href = "editBook.php">Add Anther?</a></p>';
+	} else {
+		echo '<p>Failed to add book.
+		<a href = "editBook.php">Try Again?</a></p>';
+	}
 	?>
 	</div>
 	<?php
