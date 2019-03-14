@@ -46,7 +46,7 @@
 	
 	if( $row['number_of_copies'] <= $number_copies){
 
-		$query = "DELETE FROM members WHERE isbn13 = ".$isbn13;
+		$query = "DELETE FROM books WHERE isbn13 = ".$isbn13;
 		if($conn->query($query)) {
 			echo '<p>Successfully removed book.
 			<a href = "editBook.php">Remove another?</a></p>';
